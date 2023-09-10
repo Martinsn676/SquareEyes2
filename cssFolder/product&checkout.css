@@ -1,0 +1,95 @@
+
+/* ===== Cart Page ====== */
+h1{
+    text-align: center;}
+.confirmationPage p{
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto;}
+.cartVisualContent{
+    margin:2rem 0 2rem 1.5rem;
+    overflow:scroll}
+.cartContent div{
+    margin: 4px 2rem 0 2rem;
+    min-width: 5rem;}
+.cartPaymentOptions div{
+    max-height: 4rem;
+    margin:0 auto;}
+.cartContent{
+    margin:0 auto;
+    display: grid;
+    max-width: 50rem;
+    grid-template-areas: 
+    'grid1 grid5'
+    'grid2 grid6'
+    'grid3 grid7'
+    'grid4 grid8'
+    'grid9 grid9';}
+.cartPaymentOptions{
+    max-width: 45rem;
+    margin:4rem auto;}
+.cardInputBox div{
+    display: flex;
+    flex-direction: column;}
+.cvcField{
+    width:4rem;}
+.nameField{
+    width:8rem;
+    margin-right:6rem;}
+.paymentDetails div{
+    margin-bottom:1rem;}
+
+/* ===== Product Page ====== */
+
+.singleProductPage{
+    max-width: 800px;
+    margin: var(--headerHeight) auto 0 auto;
+    
+}
+.singleProduct{
+    min-height: 400px;
+
+}
+
+/* ========= PC screen ========= */
+@media only screen and (min-width:801px){
+    .singleProduct{
+        display: grid;
+        gap:1rem;
+        grid-template-areas:
+        'grid1 grid4 grid5'
+        'grid2 grid4 grid5'
+        'grid2 grid4 grid3';}
+    .singleProductPage .grid5/*description*/{
+        width: 45rem;
+        margin-top: 0;}
+    .cartVisualContent{
+        justify-content: center;}
+}
+/* ======= Tablet screen ======= 
+@media only screen and (min-width:746px) and (max-width:985px){
+    
+}*/
+
+/* ======= Mobile screen ======= */
+@media only screen and (max-width:800px){
+    .singleProduct{
+        display: grid; 
+        grid-template-areas:
+        '. grid1 grid4 .'
+        '. grid1 grid3 .'
+        '. grid2 grid2 .'
+        'grid5 grid5 grid5 grid5';}
+    .singleProductPage .grid5/*description*/{
+        margin: 0 1rem;}
+    .singleProductPage .grid2{
+        flex-direction: row;
+        margin: 1rem 0;}
+    .singleProduct .grid4{
+        margin-left: 1rem;
+    }
+    .continueButton{
+        margin:1rem auto;}
+    .singleProduct .grid2 a{
+        padding: 15px 5px;}
+}

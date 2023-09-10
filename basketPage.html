@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SquareEyes - Basket page</title>
+    <meta name="description" content="Basket page for Square Eyes, see what you have in your">
+    <link href="cssFolder/styles.css" rel="stylesheet">
+    <link href="cssFolder/product&checkout.css" rel="stylesheet">
+    <script defer src="js/header.js"></script>
+    <script defer src="js/productLoad.js"></script>
+    <script defer src="js/basketPage.js"></script>
+
+</head>
+<body>
+    <header>
+    </header>
+
+<main>
+    <section  class="cartPage">
+        <h1>Complete your order by paying for the items in your basket</h1>
+    <section class="cartVisualContent grid1 flexRow hoverButton product-display opacityEntry productTextHide"> 
+    </section>
+    <section class="cartContent grid2">
+        
+    </section>
+    <section class="flexColumn alignColumn">
+        <section class="cartPaymentOptions flexRow grid3">
+            <div class="flexRow">
+                <input type="radio" id="cardPayment" name="paymentOption" checked>
+                <label for="cardPayment"><img src="Other/card.png"></label>
+            </div>
+            <div class="flexRow">
+                <input type="radio" id="paypalPayment" name="paymentOption">
+                <label for="paypalPayment"><img src="Other/paypal.png"></label>
+            </div>
+            <div class="flexRow">
+                <input type="radio" id="vippsPayment" name="paymentOption">
+                <label for="vippsPayment"><img src="Other/vipps.png"></label>
+            </div>     
+        </section>
+        <section class="paymentDetails">
+            <div class="flexColumn"><label for="nameField">Name on the card</label>
+            <input type="text" id="nameField" name="message"></div>
+            <div class="flexColumn"><label for="cardNumberField">Card number</label>
+            <input type="text" id="emailField" name="message"></div>
+            <section class="flexRow">
+                <div class="flexColumn nameField"><label for="nameField">Date/year</label>
+                <input type="text" id="nameField" name="message"></div>
+                <div class="flexColumn cvcField"><label for="CvcField">Cvc</label>
+                <input type="text" id="cvcField" name="message"></div>
+            </section>
+        </section>
+        <a href="confirmationPage.html" class="darkCta">Place order</a>   
+    </section>
+</section>
+</main>
+<footer>
+
+</footer>
+</body>
+</html>

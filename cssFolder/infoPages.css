@@ -1,0 +1,24 @@
+/*======= Contact/about us pages =======*/
+
+main section,main label,main button {
+    margin-top: 1rem;    }
+.contactUsPage .grid2{
+    width:25rem;}
+.infoTopText{
+    max-width: 30rem;
+    text-align: center; }
+textarea#message{
+    height:10rem;
+    max-width:30rem;}
+.mapSnippet img{
+    max-width: 40rem;
+    margin-top: 2rem;
+    border-radius: .5rem; }
+.sendButton{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left:14rem;
+    width:11rem;}
+.sendButton div{
+    color: green;}

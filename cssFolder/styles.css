@@ -1,0 +1,266 @@
+.highLight{
+
+    padding:20px;
+    background-color: red;
+
+}
+#browsingPage{
+    min-height: 700px;
+}
+.smallDivMargin div{
+    margin:10px
+}
+#currentPage{
+    text-decoration: underline;
+    cursor: default
+}
+
+
+html {
+    font-size: 62.5%;}
+body{ 
+    font-size: 1.6rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, Helvetica, sans-serif;}
+a{
+    text-decoration: none;}
+ 
+/*========= Call to action =========*/
+
+.darkCta{       
+    background-color:#706F6F;
+    padding:10px;
+    border-radius: 20px;
+    color:white;
+    margin: 2px;  
+    width: 9rem;
+    text-align: center;}
+.greyCta{
+    background-color: rgb(194, 194, 194);
+    padding:10px;
+    border-radius: 20px;
+    color:rgb(61, 61, 61);
+    margin: 2px;  
+    width: 9rem;
+    text-align: center;}
+.cleanCtaGroup a{
+    color:black;}
+
+/*========= Alignment statuses =========*/
+
+.flexColumn{ display: flex;flex-direction: column;}
+.flexRow{display: flex;flex-direction: row;}
+.flexWrap{flex-wrap: wrap;}
+.noMarginGroup >*{margin: 0px;}
+.alignColumn{
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;}
+.alignRow{align-items: center;}
+.alignTop{align-items:flex-start;}
+.alignBottom{align-items: flex-end;}
+.textRight{text-align: right;}
+.textCenter{text-align: center;}
+.grid1{grid-area:grid1;}.grid2{grid-area: grid2;}.grid3{grid-area: grid3;}.grid4{grid-area: grid4;}.grid5{grid-area: grid5;}.grid6{grid-area: grid6;}.grid7{grid-area: grid7;}.grid8{grid-area: grid8;}.grid9{grid-area: grid9;}
+.textLines h4, .textLines a{
+    padding-left: 15px;
+    color:#706F6F;}
+
+/*========= Animations =========*/
+
+.opacityEntry{animation: opacity 2s forwards;opacity: 0;}
+@keyframes opacity {30%{opacity: 0;}100%{opacity: 1;}}
+.ignoreEntry{animation: none;}
+/*============ product-display ============*/
+.product-display{
+    margin: 0 1rem;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+.product-display > div{
+    margin: 0.7%;
+}
+
+.product-display h4{
+    text-align: center;
+    color:white;
+    background-color:#706F6F;
+    margin-top:-5px;
+    width:167px;
+    border-radius: 0 0 5px 5px;
+    padding:10px 0
+    }
+
+.productTextHide h4{
+    display: none;}
+
+.product-display img,.imageReduce{
+    width:167px;
+    border-radius: 5px;}
+
+/*========= Header =========*/
+:root{
+    --headerHeight: 18rem;}
+
+header{
+    position: fixed; top:0;
+    background-color: white;
+    width: 100%;
+    max-height: var(--headerHeight);  
+    z-index:999;}
+
+main{
+    position: relative;
+    margin-top: var(--headerHeight);
+    z-index: 1;}
+
+.headerLinks a{
+    margin: 0 0.6rem;}
+
+.headerLinks{
+    height:2rem;
+    margin-top: 4rem;;
+    border-bottom: 1px solid black;}
+
+.headerIcons >*{
+    height:8rem;
+    width:6.7rem;
+    margin:0 1rem;}
+
+.headerIcons a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;}
+
+.topHeader{
+    margin-bottom: 1rem;}
+
+#headerLogo{
+    height: 10rem;
+    margin-right: 2rem;}
+
+.searchInput {position: absolute;z-index: 1;padding: 5px 15px;width:18rem;}   
+.searchBackground {position: relative;z-index: 0;background-color:transparent;border:none;}
+#searchIcon{height: 33px;margin-top: 4px;background-color: #706F6F;height:20px;padding: 5px 5px 5px 18rem;border-radius: 5px;}
+.backButton, .editFilterButton{padding: 5px 5px;height:20px;margin:2px;background-color: #706F6F;border-radius: 5px 5px 5px 5px;color:white;}    
+.backButton{border-radius: 50px 10px 10px 50px;}
+#arrowLeft{height: 15px;position: relative;bottom:-2px;}
+
+
+
+/*============ Home Page ============*/
+
+
+/* ====== Screen  adjust ====== */
+.headerIcons {
+    position: fixed;
+    align-items: baseline;
+    top:1rem;}
+footer a{
+        margin: .5rem 1rem 0 0;}
+footer nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;}
+
+.footerClass{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin:2rem 10rem;}
+.frontPage{
+    display: flex;
+    flex-direction: row;}
+.frontPageInfo{
+    color: #706F6F;
+}
+@media only screen and (min-width:986px){
+    .headerIcons {
+        left: calc(50% + 240px);}   
+    body .showMobile{
+        display: none;}
+    .hoverButton div:hover{
+        transform: scale(1.05);
+        transform-origin: center;
+        transition: transform 0.2s ease-in-out;} 
+    .frontPageInfo{
+        margin-top:25rem;
+        width:50rem;}
+    .frontPageInfo h3{
+        margin:1rem 0;}
+    .frontPageDesign{
+        max-width: 70rem;}
+    .footerClass{
+        border-top: 1px solid black;
+        padding:1rem;}
+}
+@media only screen and (min-width:746px) and (max-width:985px){
+    .headerIcons {
+        right:1rem;}
+    body .showMobile{
+        display: none;}
+    .frontPageDesign{
+        max-width: 100%;}
+    .frontPageInfo div h3{
+        text-align: center;
+        width:20%;
+        margin:2.5%;}
+    .frontPage{
+        flex-direction: column-reverse;}
+    .frontPageInfoContent{
+        display: flex;
+        flex-direction: row;}
+    .frontPageInfo h1{
+        text-align: center;}
+    .footerClass{
+        border-top: 1px solid black;
+        padding:1rem;}
+    
+}
+@media only screen and (max-width:745px){
+    .bottomHeader, .topHeader{
+        justify-content: center;}
+    header div{
+        display: flex;
+        align-items: center;
+        justify-content: center;}
+    header .headerIcons{
+        position: relative;
+        margin: 1rem 0;}
+    body .hideMobile{
+        display: none;}
+    header, main, footer{       
+        width: 100%;}
+    .footerClass{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin:2rem auto 5rem auto;}
+    footer nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;} 
+    .frontPageDesign{
+        max-width: 100%;}
+    .frontPageInfo div h3{
+        margin: 3px 1rem;
+        text-align: center;}
+    .frontPage{
+        flex-direction: column-reverse;}
+    .frontPageInfoContent{
+        display: flex;
+        flex-direction: column;}
+    .frontPageInfo h1{
+        text-align: center;margin: 3px 1rem;}
+    .frontPageLinks a{
+       width:20rem;
+       font-size: 3rem;
+       margin-top: 2rem;}
+    .lineOver{
+        border-top: 1px solid black;
+        padding:1rem 3rem;
+        margin-top:1.5rem;}
+}
