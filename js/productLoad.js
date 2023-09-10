@@ -17,7 +17,6 @@ async function getApi(url,doFunction,place,moviesPerPage,urlData){
 
 function loadApi(url,doFunction,place,moviesPerPage,urlData){
     let i = 1
-    console.log("sdfs")
     const loadingText=["Loading","Loading.","Loading..","Loading..."]
     place.innerHTML=loadingText[0]
     if(place){
@@ -90,7 +89,9 @@ function addProducts(item,place,moviesPerPage,urlData){
             i-=12*Math.floor(i/12)
             repeatText=" "+repeatCount
         }
-        
+        if(!item[i].title || repeatCount>maxRepeat){
+            break;
+        }
         if(item[i].title.toLowerCase().startsWith(search.trim().toLowerCase()) ||
             item[i].title.toLowerCase().startsWith(ignoreThe+search.trim().toLowerCase())){
             searchHits++
@@ -108,9 +109,7 @@ function addProducts(item,place,moviesPerPage,urlData){
                 </div>`
             }
         }
-        if(!item[i].title || repeatCount>maxRepeat){
-            break;
-        }
+        
     }
     
     if(count===0){
