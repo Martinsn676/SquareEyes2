@@ -10,7 +10,8 @@ async function getApi(url,doFunction,place,moviesPerPage,urlData){
         doFunction(data,place,moviesPerPage,urlData)
         
     }catch(err){
-        console.log(err+" when loading for "+doFunction+" to place in "+place)
+        place.innerHTML="We are sorry, we couldn't connect with server"
+        console.log(err)
     }
 }
 
@@ -62,7 +63,6 @@ const addUrllInfo = function inputSearch(){
 }
 
 function addProducts(item,place,moviesPerPage,urlData){
-    console.log("new load")
     place.innerHTML=""
     const ignoreThe="the "
     
@@ -188,7 +188,6 @@ function addProducts(item,place,moviesPerPage,urlData){
 function addToCart(id){
     let deleted=false
     cartString=JSON.parse(localStorage.getItem('cart'))
-    console.log(cartString)
     if(!cartString){
         cartString=[]
         cartString.push(id)
@@ -206,7 +205,6 @@ function addToCart(id){
   
         }
     }
-    console.log(cartString)
     localStorage.setItem('cart', JSON.stringify(cartString));
     updateCart()
     
