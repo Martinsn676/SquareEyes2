@@ -1,24 +1,5 @@
 const allMoviesUrl="https://api.noroff.dev/api/v1/square-eyes"
 
-//Loadingtext, I hate the rolling circle
-function showLoading(place){
-
-    let i = 1
-    console.log("sdfs")
-    const loadingText=["Loading","Loading.","Loading..","Loading..."]
-    place.innerHTML=loadingText[0]
-    if(place){
-        place.innerHTML=loadingText[0]
-        loadingLoop=setInterval(() => {
-            place.innerHTML=loadingText[i]                  
-            i++;
-            if (i > 3) {          
-                i=0; 
-            }
-        }, 200);
-    }
-}
-
 async function getApi(url,doFunction,place,moviesPerPage,urlData){
     
     try{
@@ -29,7 +10,7 @@ async function getApi(url,doFunction,place,moviesPerPage,urlData){
         doFunction(data,place,moviesPerPage,urlData)
         
     }catch(err){
-        console.log(err)
+        console.log(err+" when loading for "+doFunction+" to place in "+place)
     }
 }
 
@@ -41,7 +22,7 @@ function loadApi(url,doFunction,place,moviesPerPage,urlData){
     if(place){
         place.innerHTML=loadingText[0]
         loadingLoop=setInterval(() => {
-            place.innerHTML=loadingText[i]                  
+            place.innerHTML=`<div class="ignoreEntry">${loadingText[i]}</div>`                  
             i++;
             if (i > 3) {          
                 i=0; 
