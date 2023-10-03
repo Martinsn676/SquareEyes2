@@ -8,7 +8,6 @@ const singleProductHook = document.querySelector(".singleProduct")
 const similarMoviesSectionHook = document.querySelector(".similarMoviesSection")
 
 function loadProductInfo(item,place){
-    console.log(item)
     place.innerHTML=
     `<img src="${item.image}" class="imageReduce grid1" alt="Cover of ${item.title}"> 
     <div class="grid2 flexColumn alignColumn">

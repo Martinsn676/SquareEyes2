@@ -3,7 +3,6 @@ const cartVisualContent=document.querySelector(".cartVisualContent")
 function addBasketImages(item,place){
     cartString=JSON.parse(localStorage.getItem('cart'))
     cartVisualContent.innerHTML=""
-    console.log(cartString)
     if(!cartString || cartString.length===0){
         cartString=[]
         place.innerHTML="Basket is empty"
