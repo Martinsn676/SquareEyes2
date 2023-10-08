@@ -4,6 +4,9 @@
     background-color: red;
 
 }
+h1{
+    margin:5px;
+}
 #browsingPage{
     min-height: 700px;
 }
@@ -14,18 +17,30 @@
 .message:hover .helptext{
     display: block;
 }
-.hideThis{
+.menuText{
     display: none;
 }
 #mobileMenu{
     background-color: #706F6F;
-    height:200px;
+    height:250px;
     align-items: left;
 }
 #mobileMenu a{
     color:white;
     font-size: 4rem;
     
+}
+#basketCount{
+    
+    position:relative;
+    top:-65px;
+    left:25px;
+    background-color: red;
+    padding: 7px;
+    width: 13px;
+    height: 13px;
+    border-radius: 20px;
+    color: white;
 }
 /*========= HTML targeting =========*/
 
@@ -41,15 +56,15 @@ a{
     text-decoration: none;}
  
 /*========= Call to action =========*/
-
-.darkCta{       
+.cta{
     background-color:#706F6F;
+    color:white;
     padding:10px;
     border-radius: 20px;
-    color:white;
     margin: 2px;  
     width: 9rem;
-    text-align: center;}
+    text-align: center;
+}
 .greyCta{
     background-color: rgb(194, 194, 194);
     padding:10px;

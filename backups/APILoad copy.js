@@ -18,8 +18,8 @@ function loadProductInfo(item,place){
     `<img src="${item.image}" class="imageReduce grid1" alt="Cover of ${item.title}"> 
     <div class="grid2 flexColumn alignColumn">
         <a href="#" class="greyCta">Play movie</a>
-        <button id="buy-button" class="darkCta hoverCta">Buy movie</button>
-        <a href="#" class="darkCta hoverCta">See trailer</a>
+        <button id="buy-button" class="cta hoverCta">Buy movie</button>
+        <a href="#" class="cta hoverCta">See trailer</a>
     </div>               
     <section class="grid4 noMarginGroup textLines">
         <h6> Title </h6><h4>${item.title}</h4>

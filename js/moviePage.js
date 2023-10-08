@@ -12,8 +12,8 @@ function loadProductInfo(item,place){
     `<img src="${item.image}" class="imageReduce grid1" alt="Cover of ${item.title}"> 
     <div class="grid2 flexColumn alignColumn">
         <button id="play-button" class="greyCta" disabled="true">Play movie</button>
-        <button id="buy-button" class="darkCta hoverCta">Buy movie</button>
-        <button id="trailer-button" class="darkCta hoverCta">See trailer</button>
+        <button id="buy-button" class="cta hoverCta">Buy movie</button>
+        <button id="trailer-button" class="cta hoverCta">See trailer</button>
     </div>               
     <section class="grid4 noMarginGroup textLines">
         <h6> Title </h6><h4>${item.title}</h4>
@@ -27,13 +27,23 @@ function loadProductInfo(item,place){
     </section>
     `
     
-
+    const buyButton = document.querySelector("#buy-button")
     document.querySelector("#play-button").addEventListener("click",()=>console.log("play movie"))
-    document.querySelector("#buy-button").addEventListener("click", function(){
-        addToCart(item.title,this);
-
-    });
+    
     document.querySelector("#trailer-button").addEventListener("click",()=>console.log("play trailer"))
+    function updateAddToCart(){
+        if(inCart(item.title)){
+            buyButton.disabled=true
+            buyButton.innerHTML="In cart"
+            buyButton.classList.add("greyCta")
+        }else{
+            buyButton.addEventListener("click",function (){
+                addToCart(item.title);
+                updateAddToCart();
+            })
+        }
+    }
+    updateAddToCart()
 }
 
 loadApi(allMoviesUrl,addProducts,similarMoviesSectionHook,4,["",7]);

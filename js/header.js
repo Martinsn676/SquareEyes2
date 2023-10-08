@@ -15,11 +15,11 @@ headerHook.innerHTML=`
                 <a href="#">Friends</a>
             </nav>
             <nav class="headerIcons flexRow alignBotttom cleanCtaGroup">     
-                <a href="index.html" class="showMobile"><img src="icons/homeIcon.png" alt="">Home</a>
-                <a href="basketPage.html" class="hoverCta"><img src="icons/basketIcon.png" alt="">Basket<div id="basketCount"></div></a>
-                <a href="index.html" class=""><img src="icons/libraryIcon.png" alt="">Library</a>
+                <a href="index.html" class="showMobile"><img src="icons/homeIcon.png" alt=""><span class="menuText">Home</span></a>
+                <a href="basketPage.html" class="hoverCta"><img src="icons/basketIcon.png" alt=""><span class="menuText">Basket</span><div id="basketCount"></div></a>
+                <a href="index.html" class=""><img src="icons/libraryIcon.png" alt=""><span class="menuText">Library</span></a>
                 <a href="index.html" class="hideMobile"><img src="icons/profileIcon.png" alt="">Profile</a>
-                <span class="showMobile"><img id="hamburgerMenu" src="icons/hamburgerIcon.png"></span>
+                <div class="showMobile"><img id="hamburgerMenu" src="icons/hamburgerIcon.png"></div>
 
             </nav>
         </div>
@@ -33,12 +33,13 @@ headerHook.innerHTML=`
                 </section>
             </nav>
         </div>
-        <div id="mobileMenu" class="hideThis">
+        <div id="mobileMenu" class="menuText">
             <nav class="flexColumn">
                 <a href="browsingPage.html">My Profile</a>
                 <a href="browsingPage.html">My Library</a>
                 <a href="browsingPage.html">Browse</a>
-                
+                <a href="contactUsPage.html">Contact Us</a>
+                <a href="aboutUsPage.html">About Us</a>
             </nav>
         </div>
     
@@ -68,47 +69,60 @@ const basketCountHook=document.querySelector("#basketCount")
 const paginationHook=document.querySelector(".pagination")
 const headLine=document.querySelector("h1")
 const bottomHeader=document.querySelector(".bottomHeader")
-
-hamburgerMenu.addEventListener("click",()=>mobileMenu.classList.toggle("hideThis"))
+const helperText=document.querySelectorAll("span")
+hamburgerMenu.addEventListener("click",function(){
+    mobileMenu.classList.toggle("menuText")
+    helperText.forEach((element) => {
+        element.classList.toggle("menuText")
+    });
+})
 bottomHeader.style.display="none"
 
+
+function inCart(name){
+    cartString=JSON.parse(localStorage.getItem('cart'))
+    if(cartString){
+        for(let i = 0; i<cartString.length;i++){
+            if(cartString[i]===name){
+                return true
+            }
+            
+        }
+        return false
+    }
+
+}
+function addToCart(name,button){
+    cartString=JSON.parse(localStorage.getItem('cart'))
+    if(!cartString){
+        cartString=[]  
+    }
+    cartString.push(name) 
+    localStorage.setItem('cart', JSON.stringify(cartString));
+    updateCart()
+}
 function updateCart(){
     cartString=JSON.parse(localStorage.getItem('cart'))
-    if(cartString.length>0){
+    if(cartString){
         basketCount.innerHTML=cartString.length
     }else{
         basketCount.innerHTML=""
     }
     
 }
-function addToCart(id,button){
-    let deleted=false
-    
-    
+function removeFromCart(name){
     cartString=JSON.parse(localStorage.getItem('cart'))
-    if(!cartString){
-        cartString=[]
-        cartString.push(id)
-    }else{
-       let length=cartString.length
-        for(let i = 0; i<length;i++){
-            if(cartString[i]===id){
+    console.log(name)
+    if(cartString){
+        for(let i = 0; i<cartString.length;i++){
+            if(cartString[i]===name){
+                    
                 cartString.splice(i,1)
-                deleted=true
-            }
-            
-        }
-        if(deleted===false){
-            cartString.push(id)
-            button.disabled=true
-            button.innerHTML="In cart"
-            button.classList.add("greyCta")
-  
+                localStorage.setItem('cart', JSON.stringify(cartString));
+                updateCart()
+                break
+            } 
         }
     }
-    localStorage.setItem('cart', JSON.stringify(cartString));
-    updateCart()
-    
 }
 updateCart()
-

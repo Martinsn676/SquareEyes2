@@ -1,12 +1,11 @@
 const cartVisualContent=document.querySelector(".cartVisualContent")
 const cartTextContent=document.querySelector(".cartContent")
 
-
 function cartEdit(item){
-    addToCart(item)
+    removeFromCart(item)
     loadApi(allMoviesUrl,addBasketImages,cartVisualContent);
-
 }
+
 function addBasketImages(item){
     cartTextContent.innerHTML=""
     cartVisualContent.innerHTML=""
@@ -40,9 +39,8 @@ function addBasketImages(item){
         cartTextContent.innerHTML+=`
             <div class="flexRow totalLine">
                 <div class="textLine">Total cost</div>
-                <div class="noWrap">${totalCost} kr</div>
+                <div class="noWrap">${totalCost.toFixed(2)} kr</div>
             </div>`
-        
     }
 }
 
