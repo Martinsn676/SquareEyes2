@@ -14,8 +14,19 @@
 .message:hover .helptext{
     display: block;
 }
-
-
+.hideThis{
+    display: none;
+}
+#mobileMenu{
+    background-color: #706F6F;
+    height:200px;
+    align-items: left;
+}
+#mobileMenu a{
+    color:white;
+    font-size: 4rem;
+    
+}
 /*========= HTML targeting =========*/
 
 html {
@@ -60,9 +71,8 @@ a{
     flex-direction: row;}
 .flexWrap{
     flex-wrap: wrap;}
-.nowrap {
-  white-space: nowrap ;
-}
+.noWrap {
+  white-space: nowrap ;}
 .noMarginGroup >*{
     margin: 0px;}
 .alignColumn{
@@ -126,8 +136,7 @@ a{
     margin-top:-5px;
     width:167px;
     border-radius: 0 0 5px 5px;
-    padding:10px 0
-    }
+    padding:10px 0;}
 
 .productTextHide h4{
     display: none;}
@@ -160,7 +169,7 @@ main{
 
 .headerLinks{
     height:2rem;
-    margin-top: 4rem;;
+    margin-top: 4rem;
     border-bottom: 1px solid black;}
 
 .headerIcons >*{
@@ -320,4 +329,12 @@ footer nav{
         border-top: 1px solid black;
         padding:1rem 3rem;
         margin-top:1.5rem;}
+    .headerIcons >*{
+        height:6rem;
+        width:4rem;
+        padding:1rem}
+    .product-display img,.imageReduce,.product-display h4{
+        width:130px;
+    }
+    
 }

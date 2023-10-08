@@ -11,7 +11,7 @@ function loadProductInfo(item,place){
     place.innerHTML=
     `<img src="${item.image}" class="imageReduce grid1" alt="Cover of ${item.title}"> 
     <div class="grid2 flexColumn alignColumn">
-        <button id="play-button" class="greyCta">Play movie</button>
+        <button id="play-button" class="greyCta" disabled="true">Play movie</button>
         <button id="buy-button" class="darkCta hoverCta">Buy movie</button>
         <button id="trailer-button" class="darkCta hoverCta">See trailer</button>
     </div>               
@@ -30,10 +30,11 @@ function loadProductInfo(item,place){
 
     document.querySelector("#play-button").addEventListener("click",()=>console.log("play movie"))
     document.querySelector("#buy-button").addEventListener("click", function(){
-        addToCart(item.title);
+        addToCart(item.title,this);
+
     });
     document.querySelector("#trailer-button").addEventListener("click",()=>console.log("play trailer"))
 }
 
-loadApi(allMoviesUrl,addProducts,similarMoviesSectionHook,5,["",7]);
+loadApi(allMoviesUrl,addProducts,similarMoviesSectionHook,4,["",7]);
 loadApi(singleMovieUrl,loadProductInfo,singleProductHook)

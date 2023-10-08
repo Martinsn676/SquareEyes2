@@ -30,7 +30,7 @@ function addBasketImages(item){
                     cartTextContent.innerHTML+=`
                         <div class="cartTextLine flexRow">
                             <div class="textLine">${item[i].title}</div>
-                            <div class="nowrap">${item[i].price} kr</div>
+                            <div class="noWrap">${item[i].price} kr</div>
                             <button class="delete-button" onclick="cartEdit('${item[i].title}')"></button>
                         </div>`
                     totalCost+=item[i].price
@@ -40,7 +40,7 @@ function addBasketImages(item){
         cartTextContent.innerHTML+=`
             <div class="flexRow totalLine">
                 <div class="textLine">Total cost</div>
-                <div class="nowrap">${totalCost} kr</div>
+                <div class="noWrap">${totalCost} kr</div>
             </div>`
         
     }

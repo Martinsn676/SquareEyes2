@@ -41,10 +41,13 @@ function checkForMessageInput(target){
         return (false)
 }
 submitButton.addEventListener("click",()=>{
-    
+    checkEmail(emailInput)
+    checkForNameInput(nameInput)
+    checkForMessageInput(messageInput)
+
     if(!checkEmail(emailInput)||!checkForNameInput(nameInput)||(!checkForMessageInput(messageInput))){
         emailInput.addEventListener("keyup",()=>checkEmail(emailInput))
-        nameInput.addEventListener("keyup",()=>checkForInput(nameInput))
+        nameInput.addEventListener("keyup",()=>checkForNameInput(nameInput))
         messageInput.addEventListener("keyup",()=>checkForMessageInput(messageInput))
     }else{
         submitButton.textContent="Successfully sent!" 

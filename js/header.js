@@ -19,7 +19,7 @@ headerHook.innerHTML=`
                 <a href="basketPage.html" class="hoverCta"><img src="icons/basketIcon.png" alt="">Basket<div id="basketCount"></div></a>
                 <a href="index.html" class=""><img src="icons/libraryIcon.png" alt="">Library</a>
                 <a href="index.html" class="hideMobile"><img src="icons/profileIcon.png" alt="">Profile</a>
-                <a href="#" class="showMobile"><img src="icons/hamburgerIcon.png" alt="">Menu</a>
+                <span class="showMobile"><img id="hamburgerMenu" src="icons/hamburgerIcon.png"></span>
 
             </nav>
         </div>
@@ -31,6 +31,14 @@ headerHook.innerHTML=`
                     <input class="searchInput" type="search" id="site-search" name="q" />
                     <button class="searchBackground searchButton"><img src="Other/searchIcon.png" id="searchIcon" alt=""></button>            
                 </section>
+            </nav>
+        </div>
+        <div id="mobileMenu" class="hideThis">
+            <nav class="flexColumn">
+                <a href="browsingPage.html">My Profile</a>
+                <a href="browsingPage.html">My Library</a>
+                <a href="browsingPage.html">Browse</a>
+                
             </nav>
         </div>
     
@@ -50,8 +58,8 @@ footerHook.innerHTML=
             </nav>
         </div>
     `
-
-
+const hamburgerMenu = document.querySelector("#hamburgerMenu")
+const mobileMenu = document.querySelector("#mobileMenu")
 const searchInput = document.querySelector(".searchInput")
 const infoTextHook = document.querySelector(".infoText")
 const loadingTextHook = document.querySelector(".loadingText")
@@ -61,7 +69,9 @@ const paginationHook=document.querySelector(".pagination")
 const headLine=document.querySelector("h1")
 const bottomHeader=document.querySelector(".bottomHeader")
 
+hamburgerMenu.addEventListener("click",()=>mobileMenu.classList.toggle("hideThis"))
 bottomHeader.style.display="none"
+
 function updateCart(){
     cartString=JSON.parse(localStorage.getItem('cart'))
     if(cartString.length>0){
@@ -71,8 +81,10 @@ function updateCart(){
     }
     
 }
-function addToCart(id){
+function addToCart(id,button){
     let deleted=false
+    
+    
     cartString=JSON.parse(localStorage.getItem('cart'))
     if(!cartString){
         cartString=[]
@@ -88,6 +100,9 @@ function addToCart(id){
         }
         if(deleted===false){
             cartString.push(id)
+            button.disabled=true
+            button.innerHTML="In cart"
+            button.classList.add("greyCta")
   
         }
     }
