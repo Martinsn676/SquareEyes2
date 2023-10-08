@@ -20,5 +20,11 @@ textarea#message{
     position: relative;
     left:14rem;
     width:11rem;}
-.sendButton div{
+.message{
+    font-size: 1rem;
     color: green;}
+.error-message{
+    color:orangered;
+}
+textarea { resize: vertical; }
+

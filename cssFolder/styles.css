@@ -7,14 +7,16 @@
 #browsingPage{
     min-height: 700px;
 }
-.smallDivMargin div{
-    margin:10px
+
+.helptext{
+    display: none;
 }
-#currentPage{
-    text-decoration: underline;
-    cursor: default
+.message:hover .helptext{
+    display: block;
 }
 
+
+/*========= HTML targeting =========*/
 
 html {
     font-size: 62.5%;}
@@ -50,29 +52,63 @@ a{
 
 /*========= Alignment statuses =========*/
 
-.flexColumn{ display: flex;flex-direction: column;}
-.flexRow{display: flex;flex-direction: row;}
-.flexWrap{flex-wrap: wrap;}
-.noMarginGroup >*{margin: 0px;}
+.flexColumn, .groupFlexColumn > div{
+    display: flex;
+    flex-direction: column;}
+.flexRow,.groupFlexRow > div{
+    display: flex;
+    flex-direction: row;}
+.flexWrap{
+    flex-wrap: wrap;}
+.nowrap {
+  white-space: nowrap ;
+}
+.noMarginGroup >*{
+    margin: 0px;}
 .alignColumn{
     margin: 0 auto;
     align-items: center;
     justify-content: center;}
-.alignRow{align-items: center;}
-.alignTop{align-items:flex-start;}
-.alignBottom{align-items: flex-end;}
-.textRight{text-align: right;}
-.textCenter{text-align: center;}
-.grid1{grid-area:grid1;}.grid2{grid-area: grid2;}.grid3{grid-area: grid3;}.grid4{grid-area: grid4;}.grid5{grid-area: grid5;}.grid6{grid-area: grid6;}.grid7{grid-area: grid7;}.grid8{grid-area: grid8;}.grid9{grid-area: grid9;}
+.alignRow{
+    align-items: center;}
+.alignTop{
+    align-items:flex-start;}
+.alignBottom{
+    align-items: flex-end;}
+.textRight{
+    text-align: right;}
+.textCenter{
+    text-align: center;}
 .textLines h4, .textLines a{
     padding-left: 15px;
     color:#706F6F;}
+.smallDivMargin div{
+    margin:10px
+}
+/*========= Simple Grid =========*/
+
+.grid1{grid-area: grid1;}
+.grid2{grid-area: grid2;}
+.grid3{grid-area: grid3;}
+.grid4{grid-area: grid4;}
+.grid5{grid-area: grid5;}
+.grid6{grid-area: grid6;}
+.grid7{grid-area: grid7;}
+.grid8{grid-area: grid8;}
+.grid9{grid-area: grid9;}
+
+
 
 /*========= Animations =========*/
 
-.opacityEntry{animation: opacity 2s forwards;opacity: 0;}
-@keyframes opacity {30%{opacity: 0;}100%{opacity: 1;}}
-.ignoreEntry{animation: none;}
+.opacityEntry{
+    animation: opacity 2s forwards;opacity: 0;}
+@keyframes opacity {
+    30%{opacity: 0;}
+    100%{opacity: 1;}}
+.ignoreEntry{
+    animation: none;}
+
 /*============ product-display ============*/
 .product-display{
     margin: 0 1rem;
@@ -115,7 +151,10 @@ main{
     position: relative;
     margin-top: var(--headerHeight);
     z-index: 1;}
-
+#currentPage{
+    text-decoration: underline;
+    cursor: default
+}
 .headerLinks a{
     margin: 0 0.6rem;}
 
@@ -142,17 +181,35 @@ main{
     height: 10rem;
     margin-right: 2rem;}
 
-.searchInput {position: absolute;z-index: 1;padding: 5px 15px;width:18rem;}   
-.searchBackground {position: relative;z-index: 0;background-color:transparent;border:none;}
-#searchIcon{height: 33px;margin-top: 4px;background-color: #706F6F;height:20px;padding: 5px 5px 5px 18rem;border-radius: 5px;}
-.backButton, .editFilterButton{padding: 5px 5px;height:20px;margin:2px;background-color: #706F6F;border-radius: 5px 5px 5px 5px;color:white;}    
-.backButton{border-radius: 50px 10px 10px 50px;}
-#arrowLeft{height: 15px;position: relative;bottom:-2px;}
-
-
-
-/*============ Home Page ============*/
-
+.searchInput {
+    position: absolute;
+    z-index: 1;
+    padding: 5px 15px;
+    width:18rem;}   
+.searchBackground {
+    position: relative;
+    z-index: 0;
+    background-color:transparent;
+    border:none;}
+#searchIcon{height: 33px;
+    margin-top: 4px;
+    background-color: #706F6F;
+    height:20px;
+    padding: 5px 5px 5px 18rem;
+    border-radius: 5px;}
+.backButton, .editFilterButton{
+    padding: 5px 5px;
+    height:20px;
+    margin:2px;
+    background-color: #706F6F;
+    border-radius: 5px 5px 5px 5px;
+    color:white;}    
+.backButton{
+    border-radius: 50px 10px 10px 50px;}
+#arrowLeft{
+    height: 15px;
+    position: relative;
+    bottom:-2px;}
 
 /* ====== Screen  adjust ====== */
 .headerIcons {

@@ -1,3 +1,5 @@
+
+
 //On page load or page change with delay
 loadApi(allMoviesUrl,addProducts,productDisplay,10,addUrllInfo());
 
@@ -5,11 +7,4 @@ loadApi(allMoviesUrl,addProducts,productDisplay,10,addUrllInfo());
 searchInput.onkeyup = function (){
     getApi(allMoviesUrl,addProducts,productDisplay,10,[event.target.value,1]);
 }
-
-
-
-
-
-
-  
-
+bottomHeader.style.display="flex"

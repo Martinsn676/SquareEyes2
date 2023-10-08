@@ -52,19 +52,47 @@ footerHook.innerHTML=
     `
 
 
-const searchInput = document.querySelector("input")
+const searchInput = document.querySelector(".searchInput")
 const infoTextHook = document.querySelector(".infoText")
 const loadingTextHook = document.querySelector(".loadingText")
 const productDisplay=document.querySelector(".product-display")
 const basketCountHook=document.querySelector("#basketCount")
 const paginationHook=document.querySelector(".pagination")
-const leggTilfilm=document.querySelector(".leggTilfilm")
+const headLine=document.querySelector("h1")
+const bottomHeader=document.querySelector(".bottomHeader")
 
+bottomHeader.style.display="none"
 function updateCart(){
     cartString=JSON.parse(localStorage.getItem('cart'))
-    if(cartString){
-    basketCount.innerHTML=cartString.length
+    if(cartString.length>0){
+        basketCount.innerHTML=cartString.length
+    }else{
+        basketCount.innerHTML=""
     }
+    
+}
+function addToCart(id){
+    let deleted=false
+    cartString=JSON.parse(localStorage.getItem('cart'))
+    if(!cartString){
+        cartString=[]
+        cartString.push(id)
+    }else{
+       let length=cartString.length
+        for(let i = 0; i<length;i++){
+            if(cartString[i]===id){
+                cartString.splice(i,1)
+                deleted=true
+            }
+            
+        }
+        if(deleted===false){
+            cartString.push(id)
+  
+        }
+    }
+    localStorage.setItem('cart', JSON.stringify(cartString));
+    updateCart()
     
 }
 updateCart()

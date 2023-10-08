@@ -6,7 +6,6 @@ async function getApi(url,doFunction,place,moviesPerPage,urlData){
         const result = await fetch(url)
         const json = await result.json()
         const data = await json;
-        
         doFunction(data,place,moviesPerPage,urlData)
         
     }catch(err){
@@ -16,7 +15,7 @@ async function getApi(url,doFunction,place,moviesPerPage,urlData){
 }
 
 function loadApi(url,doFunction,place,moviesPerPage,urlData){
-    let i = 1
+    /*let i = 1
     const loadingText=["Loading","Loading.","Loading..","Loading..."]
     place.innerHTML=loadingText[0]
     if(place){
@@ -30,9 +29,11 @@ function loadApi(url,doFunction,place,moviesPerPage,urlData){
         }, 200);
     }
     setTimeout(()=> {
-        getApi(url,doFunction,place,moviesPerPage,urlData);
         clearInterval(loadingLoop)
-    },2000)
+    },2000) */
+    getApi(url,doFunction,place,moviesPerPage,urlData);
+    
+    
     
 }
 
@@ -77,12 +78,9 @@ function addProducts(item,place,moviesPerPage,urlData){
         pageCount=urlData[1]
         startCount=pageCount*moviesPerPage-moviesPerPage
     }
-    
-    
     let repeatText=""
     let repeatCount=1
     let maxRepeat=3
-    
     for(let i = 0; i<1000; i++){
         if(i>11){
             repeatCount+=Math.floor(i/12)
@@ -100,10 +98,8 @@ function addProducts(item,place,moviesPerPage,urlData){
                 rangeCount=searchHits
                 place.innerHTML+=
                 `<div>
-                    <a href="singleProductPage.html?id=${item[i].id}">
-                        
-                            <image src="${item[i].image}">
-                        
+                    <a href="movie.html?id=${item[i].id}">
+                        <image src="${item[i].image}">
                         <h4>${item[i].title+repeatText}</h4>
                     </a>
                 </div>`
@@ -124,7 +120,6 @@ function addProducts(item,place,moviesPerPage,urlData){
             nextSearchUrl=""
             resultText=`Showing ${rangeCount-count+1}-${rangeCount} movies of ${searchHits-1} `
         }
-        
         if(infoTextHook){
             infoTextHook.innerHTML=
                 `
@@ -184,27 +179,3 @@ function addProducts(item,place,moviesPerPage,urlData){
     
 
 
-function addToCart(id){
-    let deleted=false
-    cartString=JSON.parse(localStorage.getItem('cart'))
-    if(!cartString){
-        cartString=[]
-        cartString.push(id)
-    }else{
-       let length=cartString.length
-        for(let i = 0; i<length;i++){
-            if(cartString[i]===id){
-                cartString.splice(i,1)
-                deleted=true
-            }
-            
-        }
-        if(deleted===false){
-                  cartString.push(id)
-  
-        }
-    }
-    localStorage.setItem('cart', JSON.stringify(cartString));
-    updateCart()
-    
-}

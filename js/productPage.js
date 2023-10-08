@@ -26,18 +26,14 @@ function loadProductInfo(item,place){
     </section>
     </section>
     `
-    const playButton = document.querySelector("#play-button");
-    const buyButton = document.querySelector("#buy-button");
-    const trailerButton = document.querySelector("#trailer-button");
+    
 
-    playButton.addEventListener("click",()=>console.log("play movie"))
-    buyButton.addEventListener("click", function(){
+    document.querySelector("#play-button").addEventListener("click",()=>console.log("play movie"))
+    document.querySelector("#buy-button").addEventListener("click", function(){
         addToCart(item.title);
     });
-    trailerButton.addEventListener("click",()=>console.log("play trailer"))
-
-
+    document.querySelector("#trailer-button").addEventListener("click",()=>console.log("play trailer"))
 }
-loadApi(allMoviesUrl,addProducts,similarMoviesSectionHook,4,["",0])
 
+loadApi(allMoviesUrl,addProducts,similarMoviesSectionHook,5,["",7]);
 loadApi(singleMovieUrl,loadProductInfo,singleProductHook)

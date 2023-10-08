@@ -7,8 +7,7 @@ h1{
     max-width: 40rem;
     margin: 0 auto;}
 .cartVisualContent{
-    margin:2rem 0 2rem 1.5rem;
-    overflow:scroll}
+    margin:2rem 0 2rem 1.5rem;}
 .cartContent div{
     margin: 4px 2rem 0 2rem;
     min-width: 5rem;}
@@ -16,15 +15,7 @@ h1{
     max-height: 4rem;
     margin:0 auto;}
 .cartContent{
-    margin:0 auto;
-    display: grid;
-    max-width: 50rem;
-    grid-template-areas: 
-    'grid1 grid5'
-    'grid2 grid6'
-    'grid3 grid7'
-    'grid4 grid8'
-    'grid9 grid9';}
+    margin:0 auto;}
 .cartPaymentOptions{
     max-width: 45rem;
     margin:4rem auto;}
@@ -38,6 +29,21 @@ h1{
     margin-right:6rem;}
 .paymentDetails div{
     margin-bottom:1rem;}
+.cartContent .totalLine{
+    margin-top:20px;
+}
+.cartContent .textLine{
+    width:50%
+}
+.delete-button{
+    height: 3rem;
+    width: 3rem;
+    background-size: cover;
+    background-image: url('../icons/bin.png');
+}
+.delete-button:hover {
+    background-image: url('../icons/recycle-bin.png');
+}
 
 /* ===== Product Page ====== */
 

@@ -9,6 +9,19 @@
     <link href="cssFolder/styles.css" rel="stylesheet">
     <link href="cssFolder/infoPages.css" rel="stylesheet">
     <script defer src="js/header.js"></script>
+    <script defer src="js/forms.js"></script>
+    <!-- Hotjar Tracking Code for https://loquacious-marzipan-0facf6.netlify.app/ -->
+
+    <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3678613,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
 </head>
 <body>
     <header>
@@ -19,22 +32,32 @@
         <h1>Contact us</h1>
         <p>We are here to support you all weekdays from 9:00 - 15:00</p>
     </div>
-    <div class="flexColumn grid2 contactFields">
+    <div class="flexColumn grid2 contactFields groupFlexColumn">
         <p>The best way to reach us, is through this contact form</p>
-        <label for="nameField">Name:</label>
-        <input type="text" id="nameField" name="message">
-        <label for="emailField">E-mail:</label>
-        <input type="text" id="emailField" name="message">
-        <label for="message">What can we help you with?</label>
-        <textarea type="text" id="message" name="message"></textarea>
-        <div class="sendButton">
-            <button>Send</button>
-            <div>Message sent!</div>
+        
+        <div id="nameContainer">
+            <label for="nameField">Name:</label>
+            <input type="text" id="input" name="message">
+            <div class="message"></div>
         </div>
+
+        <div id="emailFieldContainer">
+            <label for="emailField">E-mail:</label>
+            <input type="text" id="input" name="message">
+            <div class="message"></div>
+        </div>
+
+        <div id="messageContainer">
+            <label for="message">What can we help you with?</label>
+            <textarea type="text" id="input" name="message"></textarea>
+            <div class="message"></div>
+        </div>
+        <button id="submitButton">Send</button>
+        
     </div>
     <div class="grid3 noMarginGroup textLines">
         <h6> Contact e-mail </h6><a href="mailto:contact@squareeyes.com"> contact@SquareEyes.com</a>
-        <h6> Phone number </h6><h4> +47 22442200</h4>
+        <h6> Phone number </h6><a href="tel:+4722442200"> +47 22442200</a>
         <h6> Postal address </h6><h4> Tvetensveien 150</h4><h4> 0671 Oslo</h4>
     </div>
     <div class="grid4 mapSnippet">

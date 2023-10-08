@@ -11,50 +11,31 @@
     <script defer src="js/header.js"></script>
     <script defer src="js/productLoad.js"></script>
     <script defer src="js/basketPage.js"></script>
+    <!-- Hotjar Tracking Code for https://loquacious-marzipan-0facf6.netlify.app/ -->
 
+    <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3678613,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
 </head>
 <body>
     <header>
     </header>
 
-<main>
-    <section  class="cartPage">
-        <h1>Complete your order by paying for the items in your basket</h1>
-    <section class="cartVisualContent grid1 flexRow hoverButton product-display opacityEntry productTextHide"> 
+<main class="cartPage flexColumn alignCenter">
+    <h1>Cart page</h1>
+    <section class="cartVisualContent flexRow hoverButton product-display opacityEntry productTextHide"> 
     </section>
-    <section class="cartContent grid2">
+    <section class="cartContent">
         
     </section>
-    <section class="flexColumn alignColumn">
-        <section class="cartPaymentOptions flexRow grid3">
-            <div class="flexRow">
-                <input type="radio" id="cardPayment" name="paymentOption" checked>
-                <label for="cardPayment"><img src="Other/card.png"></label>
-            </div>
-            <div class="flexRow">
-                <input type="radio" id="paypalPayment" name="paymentOption">
-                <label for="paypalPayment"><img src="Other/paypal.png"></label>
-            </div>
-            <div class="flexRow">
-                <input type="radio" id="vippsPayment" name="paymentOption">
-                <label for="vippsPayment"><img src="Other/vipps.png"></label>
-            </div>     
-        </section>
-        <section class="paymentDetails">
-            <div class="flexColumn"><label for="nameField">Name on the card</label>
-            <input type="text" id="nameField" name="message"></div>
-            <div class="flexColumn"><label for="cardNumberField">Card number</label>
-            <input type="text" id="emailField" name="message"></div>
-            <section class="flexRow">
-                <div class="flexColumn nameField"><label for="nameField">Date/year</label>
-                <input type="text" id="nameField" name="message"></div>
-                <div class="flexColumn cvcField"><label for="CvcField">Cvc</label>
-                <input type="text" id="cvcField" name="message"></div>
-            </section>
-        </section>
-        <a href="confirmationPage.html" class="darkCta">Place order</a>   
-    </section>
-</section>
+
 </main>
 <footer>
 
