@@ -1,6 +1,3 @@
-console.log("productLoad.js loaded")
-
-
 const allMoviesUrl="https://prototype.meeplegalaxy.com/wp-json/wc/store/products"
 
 async function getApi(url,doFunction,place,moviesPerPage,urlData){
@@ -9,12 +6,12 @@ async function getApi(url,doFunction,place,moviesPerPage,urlData){
         const result = await fetch(url)
         const json = await result.json()
         const data = await json;
-        const jsonData = data
+console.log(data)
         doFunction(data,place,moviesPerPage,urlData)
         
     }catch(err){
         place.innerHTML+="We are sorry, we couldn't connect with server"
-        console.log("getApi error "+err)
+        console.log(err)
     }
 }
 
@@ -68,6 +65,7 @@ const addUrllInfo = function inputSearch(){
 function addProducts(item,place,moviesPerPage,urlData){
     place.innerHTML=""
     const ignoreThe="the "
+    
     let search=""
     let pageCount=1
     let searchHits=0
@@ -80,11 +78,34 @@ function addProducts(item,place,moviesPerPage,urlData){
         pageCount=urlData[1]
         startCount=pageCount*moviesPerPage-moviesPerPage
     }
+    let repeatText=""
+    let repeatCount=1
+    let maxRepeat=3
+    for(let i = 0; i<1000; i++){
+        if(i>11){
+            repeatCount+=Math.floor(i/12)
+            i-=12*Math.floor(i/12)
+            repeatText=" "+repeatCount
+        }
+        if(!item[i].name || repeatCount>maxRepeat){
+            break;
+        }
+        
+            
+                count++
+                rangeCount=searchHits
+                place.innerHTML+=
+                `<div>
+                    <a href="movie.html?id=${item[i].id}">
+                        <image src="${item[i].images[0].src}">
+                        <h4>${item[i].name+repeatText}</h4>
+                    </a>
+                </div>`
+            
+        
 
-
-    for(let i = 0; i<item.length; i++){
-        if(item[i].name.toLowerCase().startsWith(search.trim().toLowerCase()) ||
-            item[i].name.toLowerCase().startsWith(ignoreThe+search.trim().toLowerCase())){
+   /* if(item[i].title.toLowerCase().startsWith(search.trim().toLowerCase()) ||
+            item[i].title.toLowerCase().startsWith(ignoreThe+search.trim().toLowerCase())){
             searchHits++
             
             if(searchHits>startCount && count<moviesPerPage){
@@ -94,12 +115,14 @@ function addProducts(item,place,moviesPerPage,urlData){
                 `<div>
                     <a href="movie.html?id=${item[i].id}">
                         <image src="${item[i].images[0].src}">
-                        <h4>${item[i].name}</h4>
+                        <h4>${item[i].name+repeatText}</h4>
                     </a>
                 </div>`
             }
-        }
-    }        
+        }*/
+        
+    }
+    
     if(count===0){
         infoTextHook.innerHTML=`We are sorry, we couln\'t find any results for "${search}"`
     }else{
@@ -110,7 +133,7 @@ function addProducts(item,place,moviesPerPage,urlData){
         }else{
             backSearchUrl=""
             nextSearchUrl=""
-            resultText=`Showing ${rangeCount-count+1}-${rangeCount} movies of ${searchHits} `
+            resultText=`Showing ${rangeCount-count+1}-${rangeCount} movies of ${searchHits-1} `
         }
         if(infoTextHook){
             infoTextHook.innerHTML=

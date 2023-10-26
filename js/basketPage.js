@@ -19,27 +19,29 @@ function addBasketImages(item){
         let totalCost = 0
         for(let x = 0; x<cartString.length; x++){
             for(let i = 0; i<item.length;i++){
-                if(cartString[x]===item[i].title){
+                if(cartString[x]===item[i].name){
                     cartVisualContent.innerHTML+=`
                     <div>
                         <a href="movie.html?id=${item[i].id}">    
-                            <img src="${item[i].image}"
+                            <img src="${item[i].images[0].src}"
                         </a>
                     </div>`
                     cartTextContent.innerHTML+=`
                         <div class="cartTextLine flexRow">
-                            <div class="textLine">${item[i].title}</div>
-                            <div class="noWrap">${item[i].price} kr</div>
-                            <button class="delete-button" onclick="cartEdit('${item[i].title}')"></button>
+                            <div class="textLine">${item[i].name}</div>
+                            <div class="noWrap">${item[i].prices.price} kr</div>
+                            <button class="delete-button" onclick="cartEdit('${item[i].name}')"></button>
                         </div>`
-                    totalCost+=item[i].price
+                    totalCost+=Number(item[i].prices.price)
+                    
+                    
                 }
             }
         }
         cartTextContent.innerHTML+=`
             <div class="flexRow totalLine">
                 <div class="textLine">Total cost</div>
-                <div class="noWrap">${totalCost.toFixed(2)} kr</div>
+                <div class="noWrap">${totalCost} kr</div>
             </div>`
     }
 }

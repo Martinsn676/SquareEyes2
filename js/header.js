@@ -1,4 +1,4 @@
-
+console.log("header.js loaded")
 const headerHook = document.querySelector("header")
 const footerHook = document.querySelector("footer")
 
@@ -116,11 +116,10 @@ function removeFromCart(name){
     if(cartString){
         for(let i = 0; i<cartString.length;i++){
             if(cartString[i]===name){
-                    
                 cartString.splice(i,1)
                 localStorage.setItem('cart', JSON.stringify(cartString));
                 updateCart()
-                break
+                break;
             } 
         }
     }
