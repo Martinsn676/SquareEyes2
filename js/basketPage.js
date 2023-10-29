@@ -3,7 +3,7 @@ const cartTextContent=document.querySelector(".cartContent")
 
 function cartEdit(item){
     removeFromCart(item)
-    loadApi(allMoviesUrl,addBasketImages,cartVisualContent);
+    loadApi(addBasketImages,cartVisualContent);
 }
 
 function addBasketImages(item){
@@ -46,4 +46,4 @@ function addBasketImages(item){
     }
 }
 
-loadApi(allMoviesUrl,addBasketImages,addBasketImages);
+loadApi(addBasketImages,addBasketImages);

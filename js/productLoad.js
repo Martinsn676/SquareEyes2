@@ -1,46 +1,35 @@
 console.log("productLoad.js loaded")
 
-
 const allMoviesUrl="https://prototype.meeplegalaxy.com/wp-json/wc/store/products"
+let standardOrder="?orderby=title&order=asc"
 
-async function getApi(url,doFunction,place,moviesPerPage,urlData){
-    
+async function getApi(doFunction,place,moviesPerPage,urlData){
+    console.log(urlData)
+    if(!urlData){
+        urlData=["","",""]
+    }
+console.log(urlData)
     try{
-        const result = await fetch(url)
+        const result = await fetch(allMoviesUrl+urlData[2])
         const json = await result.json()
         const data = await json;
-        const jsonData = data
         doFunction(data,place,moviesPerPage,urlData)
         
     }catch(err){
-        place.innerHTML+="We are sorry, we couldn't connect with server"
+        place.innerHTML="We are sorry, we couldn't connect with server"
         console.log("getApi error "+err)
     }
 }
 
-function loadApi(url,doFunction,place,moviesPerPage,urlData){
-    /*let i = 1
-    const loadingText=["Loading","Loading.","Loading..","Loading..."]
-    place.innerHTML=loadingText[0]
-    if(place){
-        place.innerHTML=loadingText[0]
-        loadingLoop=setInterval(() => {
-            place.innerHTML=`<div class="ignoreEntry">${loadingText[i]}</div>`                  
-            i++;
-            if (i > 3) {          
-                i=0; 
-            }
-        }, 200);
-    }
-    setTimeout(()=> {
-        clearInterval(loadingLoop)
-    },2000) */
-    getApi(url,doFunction,place,moviesPerPage,urlData);
-    
-    
-    
+function loadApi(doFunction,place,moviesPerPage,urlData){
+    /*
+    for(let i = 0; i<13; i++){         
+            place.innerHTML+=
+            `<div class="place-holder-card"></div>`
+    } 
+    */
+    getApi(doFunction,place,moviesPerPage,urlData);    
 }
-
 
 const addUrllInfo = function inputSearch(){
     const queryString = document.location.search;
@@ -48,10 +37,16 @@ const addUrllInfo = function inputSearch(){
    
     let prevSearch = (params.get("s"));
     let pageCount = Number(params.get("page"));
-    
+    let orderby= (params.get("orderby"));
+    let order= (params.get("order"));
+
     //Not operator didn't work for some reason
     if(prevSearch===null){
         prevSearch=""
+    }
+    orderUrl=orderby+order
+    if(orderby===null){
+        orderUrl=standardOrder
     }
     if(!pageCount>0){
         pageCount=1
@@ -60,13 +55,16 @@ const addUrllInfo = function inputSearch(){
     if(searchInput){
         searchInput.value=prevSearch
     }
-    const urlData = [prevSearch,pageCount]
+    
+    const urlData = [prevSearch,pageCount,orderUrl]
+    console.log(urlData)
     return urlData 
     
 }
 
 function addProducts(item,place,moviesPerPage,urlData){
-    place.innerHTML=""
+    console.log(urlData)
+    let movieInput=""
     const ignoreThe="the "
     let search=""
     let pageCount=1
@@ -90,7 +88,7 @@ function addProducts(item,place,moviesPerPage,urlData){
             if(searchHits>startCount && count<moviesPerPage){
                 count++
                 rangeCount=searchHits
-                place.innerHTML+=
+                movieInput+=
                 `<div>
                     <a href="movie.html?id=${item[i].id}">
                         <image src="${item[i].images[0].src}">
@@ -99,7 +97,8 @@ function addProducts(item,place,moviesPerPage,urlData){
                 </div>`
             }
         }
-    }        
+    }
+    place.innerHTML=movieInput    
     if(count===0){
         infoTextHook.innerHTML=`We are sorry, we couln\'t find any results for "${search}"`
     }else{

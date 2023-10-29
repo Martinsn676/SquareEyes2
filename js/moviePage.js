@@ -3,14 +3,15 @@ console.log("moviePage.js loaded")
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
-
 const singleMovieUrl = allMoviesUrl+"/"+id
 
 const singleProductHook = document.querySelector(".singleProduct")
 const similarMoviesSectionHook = document.querySelector(".similarMoviesSection")
 
 function loadProductInfo(item,place){
-    console.log(item.images[1].alt)
+    if(!item.images[1]){
+        item.images[1]=""
+    }
     place.innerHTML=
     `<img class="grid7" src="${item.images[1].src}" alt="${item.images[1].alt}">
     <img src="${item.images[0].src}" class="imageReduce grid1" alt="${item.images[0].alt}"> 
@@ -51,5 +52,5 @@ function loadProductInfo(item,place){
 }
 
 //loadApi(allMoviesUrl,addProducts,productDisplay,10,addUrllInfo());
-loadApi(allMoviesUrl,addProducts,productDisplay,4,addUrllInfo());
-loadApi(singleMovieUrl,loadProductInfo,singleProductHook)
+loadApi(addProducts,productDisplay,4,addUrllInfo());
+loadApi(loadProductInfo,singleProductHook,0,[ "", 1,"/"+id])

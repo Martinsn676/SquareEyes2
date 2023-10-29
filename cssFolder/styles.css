@@ -4,6 +4,13 @@
     background-color: red;
 
 }
+.place-holder-card{
+    background-color: #706F6F;
+    height:250px;
+    width: 167px;
+    border-radius: 10px;
+    opacity: 20%;
+    }
 h1{
     margin:5px;
 }
@@ -125,12 +132,11 @@ a{
 
 
 /*========= Animations =========*/
-
 .opacityEntry{
     animation: opacity 2s forwards;opacity: 0;}
-@keyframes opacity {
-    30%{opacity: 0;}
-    100%{opacity: 1;}}
+        @keyframes opacity {
+        30%{opacity: 0;}
+        100%{opacity: 1;}}
 .ignoreEntry{
     animation: none;}
 
